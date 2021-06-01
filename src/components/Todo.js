@@ -4,7 +4,7 @@ class Todo extends React.Component {
 
 	render(){
 		return(
-			<h3>{this.props.toDoText}</h3>
+			<h3>{this.props.toDoText.task}</h3>
 		)
 	}
 }

@@ -21,7 +21,12 @@ class App extends React.Component {
   handleSubmit = (e) => {
     e.preventDefault();
     const newArray = this.state.storedToDos;
-    newArray.push(this.state.formValue)
+    // newArray.push(this.state.formValue)
+    newArray.push({
+      task: this.state.formValue,
+      id: Date.now(),
+      completed: false
+    })
     this.setState({
       storedToDos: newArray
     })
