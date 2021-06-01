@@ -6,7 +6,7 @@ import Todo from "./components/Todo"
 class App extends React.Component {
   // you will need a place to store your state in this component.
   state = {
-    toDos: [],
+    storedToDos: [],
     formValue: ''
   };
   // design `App` to be the parent component of your application.
@@ -18,15 +18,26 @@ class App extends React.Component {
       formValue: e.target.value
     })
   }
+  handleSubmit = (e) => {
+    e.preventDefault();
+    const newArray = this.state.storedToDos;
+    newArray.push(this.state.formValue)
+    this.setState({
+      storedToDos: newArray
+    })
+    console.log(this.state.formValue)
+    console.log(this.state.storedToDos)
+    this.setState({
+      formValue: ''
+    })
+  }
 
   render() {
     return (
       <div>
         <h2>To Do</h2>
-        <TodoList>
-            {/* Todo will be mapped through here */}
-        </TodoList>
-        <TodoForm formValue={this.state.formValue} handleChange={this.handleChange} />
+        <TodoList storedToDos={this.state.storedToDos} />
+        <TodoForm formValue={this.state.formValue} handleChange={this.handleChange} handleSubmit={this.handleSubmit} />
       </div> 
     );
   }
