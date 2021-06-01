@@ -4,7 +4,8 @@ class Todo extends React.Component {
 
 	render(){
 		return(
-			<div></div>
+			<h3>Test Todo</h3>
+			// Will need to put in functional data
 		)
 	}
 }

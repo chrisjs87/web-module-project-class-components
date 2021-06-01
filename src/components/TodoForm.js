@@ -4,7 +4,11 @@ class TodoForm extends React.Component {
 
 	render(){
 		return(
-			<div></div>
+			<form>
+				<input />
+				<button>Add Todo</button>
+				<button>Clear Completed</button>
+			</form>
 		)
 	}
 }
