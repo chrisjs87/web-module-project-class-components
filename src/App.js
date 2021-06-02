@@ -30,19 +30,31 @@ class App extends React.Component {
     this.setState({
       storedToDos: newArray
     })
-    console.log(this.state.formValue)
-    console.log(this.state.storedToDos)
+    // console.log(this.state.formValue)
+    // console.log(this.state.storedToDos)
     this.setState({
       formValue: ''
     })
   }
+  handleClear = (e) => {
+    e.preventDefault();
+    console.log('You have cleared')
+  }
+
+  completedHandler = (e) => {
+		console.log("This was clicked")
+    console.log(e);
+		// this.setState({
+    //   storedToDos: 
+		// })
+	}
 
   render() {
     return (
       <div>
         <h2>To Do</h2>
-        <TodoList storedToDos={this.state.storedToDos} />
-        <TodoForm formValue={this.state.formValue} handleChange={this.handleChange} handleSubmit={this.handleSubmit} />
+        <TodoList storedToDos={this.state.storedToDos} completedHandler={this.completedHandler} />
+        <TodoForm formValue={this.state.formValue} handleChange={this.handleChange} handleSubmit={this.handleSubmit} handleClear={this.handleClear} />
       </div> 
     );
   }

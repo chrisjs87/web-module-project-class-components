@@ -10,7 +10,7 @@ class TodoList extends React.Component {
 			<div>
 				{
 					this.props.storedToDos.map(toDo => {
-						return <Todo key={toDo.id} toDoText={toDo} />
+						return <Todo completedHandler={this.props.completedHandler} key={toDo.id} toDoInfo={toDo} />
 					})
 				}
 			</div>
